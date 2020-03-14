@@ -46,4 +46,16 @@ $router->group([
         $router->get('/', 'CityController@index');
         $router->delete('/{id}', 'CityController@delete');
     });
+
+    //Route for Cart
+    $router->group([
+        'prefix' => 'cart'
+    ], function() use ($router) {
+        $router->get('/', 'CartController@index');
+        $router->post('/', 'CartController@store');
+        $router->get('/{id}', 'CartController@show');
+        $router->delete('/{id}', 'CartController@destroy');
+        $router->put('/{id}', 'CartController@update');
+    });
+
 });
